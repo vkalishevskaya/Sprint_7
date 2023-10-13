@@ -43,7 +43,7 @@ public class CourierLoginTest {
         check.loginFailed(loginResponse);
     }
     @Test public void loginWithoutPassword() {
-        ValidatableResponse loginResponse = client.login(Map.of("login", "null"));
+        ValidatableResponse loginResponse = client.login(Map.of("login", "login"));
         check.loginFailed(loginResponse);
     }
 
