@@ -1,17 +1,18 @@
-package courier;
+package org.example.courier;
 
 import io.restassured.response.ValidatableResponse;
+import org.example.Client;
 
 import java.util.Map;
 
-public class CourierClient extends org.example.Client {
-    protected final String ROOT = "/courier";
+public class CourierClient extends Client {
+    static final String COURIER_PATH = "/courier";
 
     public ValidatableResponse create(Courier courier) {
         return spec()
                 .body(courier)
                 .when()
-                .post(ROOT)
+                .post(COURIER_PATH)
                 .then().log().all();
     }
 
@@ -19,7 +20,7 @@ public class CourierClient extends org.example.Client {
         return spec()
                 .body(creds)
                 .when()
-                .post(ROOT + "/login")
+                .post(COURIER_PATH + "/login")
                 .then().log().all();
     }
 
@@ -27,7 +28,7 @@ public class CourierClient extends org.example.Client {
         return spec()
                 .body(creds)
                 .when()
-                .post(ROOT + "/login")
+                .post(COURIER_PATH + "/login")
                 .then().log().all();
     }
 
@@ -37,7 +38,7 @@ public class CourierClient extends org.example.Client {
         return spec()
                 .body(json)
                 .when()
-                .delete(ROOT + "/" + courierId)
+                .delete(COURIER_PATH + "/" + courierId)
                 .then().log().all();
     }
 }

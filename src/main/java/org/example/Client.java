@@ -1,3 +1,5 @@
+package org.example;
+
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 

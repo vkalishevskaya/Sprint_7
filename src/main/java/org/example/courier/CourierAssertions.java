@@ -1,4 +1,4 @@
-package courier;
+package org.example.courier;
 
 import io.restassured.response.ValidatableResponse;
 

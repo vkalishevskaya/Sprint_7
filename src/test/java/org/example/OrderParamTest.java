@@ -1,3 +1,5 @@
+package org.example;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -5,11 +7,11 @@ import org.junit.runners.Parameterized;
 import java.util.List;
 
 @RunWith(Parameterized.class)
-public class CourierParamTest {
+public class OrderParamTest {
 
     private List<String> color;
 
-    public CourierParamTest(List<String> color) {
+    public OrderParamTest(List<String> color) {
         this.color = color;
     }
 
@@ -18,6 +20,7 @@ public class CourierParamTest {
         return new Object[][] {
                 {List.of("GREY", "YELLOW")},
                 {List.of("YELLOW")},
+                {null},
         };
     }
 
