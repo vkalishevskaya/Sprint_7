@@ -1,5 +1,7 @@
 package org.example.order;
 
+import java.util.List;
+
 public class Order {
     private String firstName;
     private String lastName;
@@ -11,10 +13,10 @@ public class Order {
     private String comment;
     private String[] color;
 
-    public Order() {
+    public Order(String naruto, String uchiha, String s, String number, String s1, int i, String date, String s2, List<String> color) {
     }
 
-    public Order(String firstName, String lastName, String address, String metroStation, String phone, Number rentTime, String deliveryDate, String comment, String[] color) {
+    public Order(String firstName, String lastName, String address, String metroStation, String phone, Number rentTime, String deliveryDate, String comment) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
