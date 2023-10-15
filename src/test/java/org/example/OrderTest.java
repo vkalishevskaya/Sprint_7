@@ -17,10 +17,10 @@ public class OrderTest {
     private final OrderClient orders = new OrderClient();
     private final OrderAssertions check = new OrderAssertions();
 
-    private List<String> color;
-    public OrderTest(List<String> color) {
-        this.color = color;
-    }
+   private List<String> color;
+   public OrderTest(List<String> color) {
+       this.color = color;
+   }
 
     @Parameterized.Parameters
     public static Object[][] color() {
@@ -29,7 +29,6 @@ public class OrderTest {
                 {null},
                 {List.of("BLACK")},
                 {List.of("GREY")},
-
         };
     }
 

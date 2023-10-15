@@ -20,7 +20,7 @@ public class CourierLoginTest {
     @After
     public void deleteCourier() {
         if (courierId > 0) {
-            ValidatableResponse response = client.delete(courierId);
+            ValidatableResponse response = client.deleteCourier(courierId);
             check.deletedSuccessfully(response);
         }
     }
@@ -28,7 +28,7 @@ public class CourierLoginTest {
     @Test
     public void courier() {
         var courier = generator.random();
-        ValidatableResponse creationResponse = client.create(courier);
+        ValidatableResponse creationResponse = client.createCourier(courier);
         check.createdSuccessfully(creationResponse);
 
         Credentials creds = Credentials.from(courier);
@@ -42,6 +42,7 @@ public class CourierLoginTest {
         ValidatableResponse loginResponse = client.login(Map.of("password", "null"));
         check.loginFailed(loginResponse);
     }
+
     @Test public void loginWithoutPassword() {
         ValidatableResponse loginResponse = client.login(Map.of("login", "login"));
         check.loginFailed(loginResponse);

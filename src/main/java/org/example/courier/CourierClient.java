@@ -8,7 +8,7 @@ import java.util.Map;
 public class CourierClient extends Client {
     static final String COURIER_PATH = "/courier";
 
-    public ValidatableResponse create(Courier courier) {
+    public ValidatableResponse createCourier(Courier courier) {
         return spec()
                 .body(courier)
                 .when()
@@ -32,7 +32,7 @@ public class CourierClient extends Client {
                 .then().log().all();
     }
 
-    public ValidatableResponse delete(int courierId) {
+    public ValidatableResponse deleteCourier(int courierId) {
         String json = String.format("{\"id\": \"%d\"}", courierId);
 
         return spec()
