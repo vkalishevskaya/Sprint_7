@@ -8,7 +8,7 @@ import org.example.courier.Credentials;
 public class OrderListClient extends Client {
     static final String ALL_ORDERS_PATH = "/orders";
 
-    public ValidatableResponse create() {;
+    public ValidatableResponse create() {
 
         return spec()
                 .when()

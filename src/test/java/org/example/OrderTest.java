@@ -1,4 +1,6 @@
 package org.example;
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 import org.example.order.OrderAssertions;
 import org.example.order.OrderClient;
@@ -32,7 +34,9 @@ public class OrderTest {
     }
 
     @Test
-    public void succesfullOrder() {
+    @DisplayName("check colors in order")
+    @Description("A couple of tests")
+    public void successfulOrderColors() {
         var order = generator.orderTest();
         ValidatableResponse loginResponse = orders.create(order);
         check.orderedSuccessfully(loginResponse);

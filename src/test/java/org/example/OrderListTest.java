@@ -1,5 +1,8 @@
 package org.example;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Step;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 import org.example.courier.Courier;
 import org.example.courier.CourierAssertions;
@@ -16,7 +19,9 @@ public class OrderListTest {
 
 
     @Test
-    public void succesfullOrder() {
+    @DisplayName("successful order test")
+    @Description("checking status-code")
+    public void successfulOrder() {
         ValidatableResponse loginResponse = orders.create();
         check.orderesGetSuceesfully(loginResponse);
     }

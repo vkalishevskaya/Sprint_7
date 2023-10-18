@@ -1,5 +1,7 @@
 package org.example;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 import org.example.courier.CourierAssertions;
 import org.example.courier.CourierClient;
@@ -26,6 +28,8 @@ public class CourierLoginTest {
     }
 
     @Test
+    @DisplayName("successful login")
+    @Description("checking status-code")
     public void courier() {
         var courier = generator.random();
         ValidatableResponse creationResponse = client.createCourier(courier);
@@ -38,17 +42,26 @@ public class CourierLoginTest {
         assert courierId > 100;
     }
 
-    @Test public void loginFails() {
+    @Test
+    @DisplayName("login fails response")
+    @Description("checking status-code")
+    public void loginFails() {
         ValidatableResponse loginResponse = client.login(Map.of("password", "null"));
         check.loginFailed(loginResponse);
     }
 
-    @Test public void loginWithoutPassword() {
+    @Test
+    @DisplayName("login without password field")
+    @Description("checking status-code")
+    public void loginWithoutPassword() {
         ValidatableResponse loginResponse = client.login(Map.of("login", "login"));
         check.loginFailed(loginResponse);
     }
 
-    @Test public void incorrectPassword() {
+    @Test
+    @DisplayName("login with incorrect password")
+    @Description("checking status-code")
+    public void incorrectPassword() {
         var courier = generator.repeats();
         Credentials creds = Credentials.from(courier);
         ValidatableResponse loginResponse = client.login(creds);
@@ -56,6 +69,8 @@ public class CourierLoginTest {
     }
 
     @Test
+    @DisplayName("login with invalid data")
+    @Description("checking status-code")
     public void userNotExist(){
         var courier = generator.notExist();
         Credentials creds = Credentials.from(courier);
